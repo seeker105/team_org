@@ -18,8 +18,6 @@ RSpec.feature "Test OAuth Login" do
     end
 
     scenario 'testing OAuth stub' do
-      byebug
-      
       visit root_path
       expect(page).to have_content("Click here to login to facebook")
       click_link "Click here to login to facebook"
