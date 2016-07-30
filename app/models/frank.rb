@@ -1,2 +1,0 @@
-class Frank < ApplicationRecord
-end
