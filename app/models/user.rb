@@ -1,10 +1,10 @@
 class User < ApplicationRecord
-  belongs_to :team
   has_one :coaches_team, class_name: "Team",
-                        foreign_key: "user_id"
-
-  enum role: %w(coach player)
-
+                         foreign_key: "user_id",
+                         required: false,
+                         inverse_of: "coach"
+  has_many :team_players
+  has_many :teams, through: :team_players
 
   def self.find_or_create_from_auth_hash(auth_info)
     where(uid: auth_info.uid).first_or_create do |new_user|

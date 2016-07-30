@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160728212604) do
+ActiveRecord::Schema.define(version: 20160730210439) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,11 +21,20 @@ ActiveRecord::Schema.define(version: 20160728212604) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "teams", force: :cascade do |t|
-    t.string   "name"
+  create_table "team_players", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "team_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["team_id"], name: "index_team_players_on_team_id", using: :btree
+    t.index ["user_id"], name: "index_team_players_on_user_id", using: :btree
+  end
+
+  create_table "teams", force: :cascade do |t|
+    t.string   "name"
     t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_teams_on_user_id", using: :btree
   end
 
@@ -33,13 +42,15 @@ ActiveRecord::Schema.define(version: 20160728212604) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "uid"
+    t.integer  "role",       default: 0
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
     t.integer  "team_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer  "role"
     t.index ["team_id"], name: "index_users_on_team_id", using: :btree
   end
 
+  add_foreign_key "team_players", "teams"
+  add_foreign_key "team_players", "users"
   add_foreign_key "teams", "users"
   add_foreign_key "users", "teams"
 end
