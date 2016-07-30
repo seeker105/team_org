@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   belongs_to :team
   has_one :coaches_team, class_name: "Team",
-                        foreign_key: "user_id"
+                         foreign_key: "coach_id"
 
   enum role: %w(coach player)
 

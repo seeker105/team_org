@@ -1,0 +1,2 @@
+class Frank < ApplicationRecord
+end

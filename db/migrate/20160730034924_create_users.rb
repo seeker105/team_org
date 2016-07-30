@@ -4,9 +4,10 @@ class CreateUsers < ActiveRecord::Migration[5.0]
       t.string :first_name
       t.string :last_name
       t.string :uid
-      t.references :team, foreign_key: true
-
-      t.timestamps
+      t.integer :role
+      t.integer :team_id, foreign_key: true
+      t.integer :coach_id
     end
+    add_index :users, :coach_id
   end
 end
