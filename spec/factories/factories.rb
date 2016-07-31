@@ -5,6 +5,7 @@ FactoryGirl.define do
     uid { generate(:uid) }
     team_id nil
     role 0
+    mobile_number "+13034161221"
   end
 
   sequence :first_name do |var|

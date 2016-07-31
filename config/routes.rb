@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'coach/dashboard', to: 'coaches#dashboard', as: :coach_dashboard
   get 'create_account', to: 'accounts#create', as: :create_account
   get 'landing', to: 'pages#landing', as: :landing_page
+  get 'roster/:id', to: 'teams#index', as: :roster
 
 
 
