@@ -34,6 +34,7 @@ gem 'omniauth-oauth2'
 gem 'omniauth-facebook'
 gem 'rails_12factor'
 gem 'simplecov'
+gem 'twilio-ruby'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -44,6 +45,8 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'database_cleaner'
+  gem 'capybara-webkit'
+  # gem 'selenium-webdriver'
 end
 
 group :development do
