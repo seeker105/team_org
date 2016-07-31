@@ -1,6 +1,6 @@
 class CoachesController < ApplicationController
 
   def dashboard
-    #code
+    @team = Team.new
   end
 end

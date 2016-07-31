@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  post 'teams/create', to: 'teams#create', as: :team_create
+
   root 'pages#index'
 
   get 'auth/facebook', as: :facebook_login
