@@ -15,12 +15,11 @@ RSpec.feature "Go from the landing page to the coach dashboard", :js => true do
     expect(page).to have_button("Add player")
     expect(page).to have_no_field 'player[first_name][]', type: 'text'
     expect(page).to have_no_field 'player[last_name][]', type: 'text'
+    expect(page).to have_no_field 'player[mobile_number][]', type: 'text'
 
     click_button "Add player"
     expect(page).to have_field 'player[first_name][]', type: 'text'
     expect(page).to have_field 'player[last_name][]', type: 'text'
-    # within(".player-1") do
-    #   expect(page).to have_field :input, count: 2
-    # end
+    expect(page).to have_field 'player[mobile_number][]', type: 'text'
   end
 end
