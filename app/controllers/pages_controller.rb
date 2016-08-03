@@ -5,7 +5,4 @@ class PagesController < ApplicationController
 
   def facebook_login
   end
-
-  def landing
-  end
 end
