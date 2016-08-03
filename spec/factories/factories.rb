@@ -19,7 +19,13 @@ FactoryGirl.define do
     "#{var}"
   end
 
-  factory :coach, class: User
+  factory :coach, class: User do
+    first_name { generate(:first_name) }
+    last_name { generate(:last_name) }
+    uid { generate(:uid) }
+    role 0
+    mobile_number "+13034161221"
+  end
 
   factory :team do
     name { generate(:team_name) }

@@ -14,7 +14,8 @@ Rails.application.routes.draw do
   get 'create_account', to: 'accounts#create', as: :create_account
   get 'landing', to: 'pages#landing', as: :landing_page
   get 'roster/:id', to: 'teams#index', as: :roster
-  get 'teams/create', to: 'teams#create', as: :team_create
+  post 'teams/create', to: 'teams#create', as: :team_create
   get 'teams/new', to: 'teams#new', as: :team_new
+  get 'players/new', to: 'players#new', as: :players_new
   get 'twilio/welcome_messages', to: 'twilio#create', as: :welcome_messages
 end
