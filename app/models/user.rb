@@ -14,19 +14,7 @@ class User < ApplicationRecord
     end
   end
 
-  def players
-    coaches_team.players
-  end
-
-  def my_team
-    coaches_team
-  end
-
   def full_name
     "#{first_name} #{last_name}"
-  end
-
-  def team_name
-    coaches_team.name
   end
 end
