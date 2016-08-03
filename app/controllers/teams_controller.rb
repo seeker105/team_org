@@ -15,6 +15,10 @@ class TeamsController < ApplicationController
     @players = @team.players
   end
 
+  def new
+    @team = Team.new
+  end
+
   private
   def team_name
     params.require(:team).permit(:name)

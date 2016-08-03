@@ -17,9 +17,10 @@ RSpec.feature "Coach with no teams" do
 
     visit coach_dashboard_path
     click_link "Create Team"
-    expect(current_path).to eq(team_create_path)
+    save_and_open_page
+    expect(current_path).to eq(team_new_path)
     expect(page).to have_content("Create Team")
-    expect(page).to have_field("Team Name")
-    expect(page).to have_link("Create")
+    expect(page).to have_field("team[name]")
+    expect(page).to have_button("Create")
   end
 end
