@@ -5,8 +5,9 @@
   <br /><br />
 
   <%= form_for @team, url: team_create_path do |f| %>
-    <%= f.label "Team Name" %>
+    <%= f.label :name, "Team Name" %>
     <%= f.text_field :name, class: "form-control" %>
+    <br />
     <%= f.submit "Create" %>
   <% end %>
 </div>
