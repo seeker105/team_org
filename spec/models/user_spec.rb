@@ -1,5 +1,5 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  # it { should have_many(:coaches_team) }
+  # it { should have_many(:coaches_teams) }
 end

@@ -37,6 +37,7 @@ gem 'simplecov'
 gem 'twilio-ruby'
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'
+gem 'shoulda-matchers'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
