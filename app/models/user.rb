@@ -1,8 +1,7 @@
 class User < ApplicationRecord
-  has_one :coaches_team, class_name: "Team",
+  has_many :coaches_teams, class_name: "Team",
                          foreign_key: "user_id",
-                         required: false,
-                         inverse_of: "coach"
+                         inverse_of: :coach
   has_many :team_players
   has_many :teams, through: :team_players
 

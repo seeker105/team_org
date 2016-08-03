@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160731184723) do
+ActiveRecord::Schema.define(version: 20160803034347) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,13 +45,10 @@ ActiveRecord::Schema.define(version: 20160731184723) do
     t.integer  "role",          default: 0
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
-    t.integer  "team_id"
     t.string   "mobile_number"
-    t.index ["team_id"], name: "index_users_on_team_id", using: :btree
   end
 
   add_foreign_key "team_players", "teams"
   add_foreign_key "team_players", "users"
   add_foreign_key "teams", "users"
-  add_foreign_key "users", "teams"
 end
