@@ -40,6 +40,7 @@ RSpec.feature "Go from the landing page to the coach dashboard", :js => true do
     visit coach_dashboard_path
     click_button "Add player"
     click_button "Add player"
+    
     fill_in "team[name]", with: team_name
     within(".player-1") do
       fill_in "player[first_name][]", with: player1.first_name
@@ -51,7 +52,6 @@ RSpec.feature "Go from the landing page to the coach dashboard", :js => true do
       fill_in "player[last_name][]", with: player2.last_name
       fill_in "player[mobile_number][]", with: player2.mobile_number
     end
-
     click_button "Submit"
 
     expect(page).to have_content(team_name)
