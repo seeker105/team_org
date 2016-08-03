@@ -1,6 +1,6 @@
 class TeamsController < ApplicationController
   def create
-    team = Team.create(name: team_name[:name], user_id: current_user.id )
+    team = Team.create(name: team_name[:name], coach_id: current_user.id )
     first_names = params[:player][:first_name]
     last_names  = params[:player][:last_name]
     mobile_numbers = params[:player][:mobile_number]
