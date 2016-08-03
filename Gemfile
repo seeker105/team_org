@@ -48,6 +48,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'database_cleaner'
   gem 'capybara-webkit'
+  gem 'pry', :require => 'pry'
 end
 
 group :development do

@@ -20,6 +20,10 @@ class TeamsController < ApplicationController
     params.require(:team).permit(:name)
   end
 
+  def player_params
+    params.require(:team).require(:player).permit(:first_name, :last_name)
+  end
+
   # def player_params
   #   params.require(:player).permit(:first_name, :last_name)
   # end
