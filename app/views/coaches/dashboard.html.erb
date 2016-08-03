@@ -4,17 +4,5 @@
 <h1>Coach's Dashboard</h1>
 <br /><br />
 
-
-<%= form_for @team, url: team_create_path do |f| %>
-  <%= f.label "Team Name:" %>
-  <%= f.text_field :name, class: "form-control" %>
-  <br /><br />
-  <div class="input_fields_wrap">
-    <button class="add_field_button">Add player</button>
-    <br />
-  </div>
-  <br /><br />
-  <%= f.submit "Submit" %>
-
-<% end %>
+<%= link_to "Create Team", '#', class: "btn btn-primary" %>
 </div>
