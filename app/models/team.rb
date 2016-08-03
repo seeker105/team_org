@@ -1,4 +1,6 @@
 class Team < ApplicationRecord
+  before_save :slugify_name
+
   belongs_to :coach, class_name: "User",
                      foreign_key: "coach_id",
                      required: false#,
@@ -7,4 +9,8 @@ class Team < ApplicationRecord
   has_many :players, through: :team_players,
                      class_name: "User",
                      source: "user"
+
+  def slugify_name
+    self.slug = name.parameterize
+  end
 end
