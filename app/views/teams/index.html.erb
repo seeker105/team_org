@@ -1,9 +1,12 @@
-<h1>Roster for <%= @team.name %></h1>
+<div class="container">
+
+  <h1>Roster for <%= @team.name %></h1>
 
 
-<% @players.each_with_index do |player, x| %>
-  <%= "#{x+1}: #{player.first_name} #{player.last_name} Mobile: #{player.mobile_number}" %>
-  <br />
-<% end %>
+  <% @players.each_with_index do |player, x| %>
+    <%= "#{x+1}: #{player.first_name} #{player.last_name} Mobile: #{player.mobile_number}" %>
+    <br />
+  <% end %>
 
-<%= link_to "Finalize", welcome_messages_path(players: @players) %>
+  <%= link_to "Finalize", welcome_messages_path(players: @players) %>
+</div>
