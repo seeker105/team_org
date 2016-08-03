@@ -1,8 +1,7 @@
 class User < ApplicationRecord
-  has_one :coaches_team, class_name: "Team",
-                         foreign_key: "user_id",
-                         required: false,
-                         inverse_of: "coach"
+  has_many :coaches_teams, class_name: "Team",
+                         foreign_key: "coach_id",
+                         inverse_of: :coach
   has_many :team_players
   has_many :teams, through: :team_players
 
@@ -14,19 +13,7 @@ class User < ApplicationRecord
     end
   end
 
-  def players
-    coaches_team.players
-  end
-
-  def my_team
-    coaches_team
-  end
-
   def full_name
     "#{first_name} #{last_name}"
-  end
-
-  def team_name
-    coaches_team.name
   end
 end

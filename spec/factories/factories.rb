@@ -3,7 +3,6 @@ FactoryGirl.define do
     first_name { generate(:first_name) }
     last_name { generate(:last_name) }
     uid { generate(:uid) }
-    team_id nil
     role 0
     mobile_number "+13034161221"
   end
@@ -24,6 +23,7 @@ FactoryGirl.define do
 
   factory :team do
     name { generate(:team_name) }
+    coach
   end
 
   sequence :team_name do |var|
