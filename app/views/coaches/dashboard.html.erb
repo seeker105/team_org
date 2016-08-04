@@ -1,8 +1,12 @@
 <%= render partial: "shared/navbar" %>
 <div class="container">
 
-<h1>Coach's Dashboard</h1>
-<br /><br />
+  <h1>Coach's Dashboard</h1>
+  <div class="container team_list">
+    <% @teams.each do |team| %>
+      <h2><%= team.name %></h2>
+    <% end %>
+  </div>
 
-<%= link_to "Create Team", team_new_path, class: "btn btn-primary" %>
+  <%= link_to "Create Team", team_new_path, class: "btn btn-primary" %>
 </div>

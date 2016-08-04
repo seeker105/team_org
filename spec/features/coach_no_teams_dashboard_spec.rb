@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.feature "Coach with no teams" do
   scenario 'coach no teams logs in sees dashboard and only sees "Create Teams" button' do
-    coach = create(:coach)
+    coach = create(:user)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(coach)
 
     visit coach_dashboard_path
@@ -12,7 +12,7 @@ RSpec.feature "Coach with no teams" do
   end
 
   scenario 'coach clicks on the "Create Team" button' do
-    coach = create(:coach)
+    coach = create(:user)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(coach)
 
     visit coach_dashboard_path
@@ -25,7 +25,7 @@ RSpec.feature "Coach with no teams" do
   end
 
   scenario 'coach visits the Create Players form' do
-    coach = create(:coach)
+    coach = create(:user)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(coach)
     team_name = "Whata team"
 
