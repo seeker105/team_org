@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.feature "Coach with no teams" do
   scenario 'coach no teams logs in sees dashboard and only sees "Create Teams" button' do
     coach = create(:coach)
-    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(:coach)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(coach)
 
     visit coach_dashboard_path
     expect(current_path).to eq(coach_dashboard_path)
@@ -13,7 +13,7 @@ RSpec.feature "Coach with no teams" do
 
   scenario 'coach clicks on the "Create Team" button' do
     coach = create(:coach)
-    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(:coach)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(coach)
 
     visit coach_dashboard_path
     click_link "Create Team"
