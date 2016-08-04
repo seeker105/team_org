@@ -32,7 +32,7 @@ RSpec.feature "On the Create Players form", :js => true do
     # # I expect a welcome text message to be sent to each player
     #
     # FakeSMS.contents.each_with_index do |message, x|
-    #   expect(message[:from][:body]).to eq("Welcome #{players[x].full_name}! You have been added to the #{team.name} team by #{coach.full_name}!")
+    #   expect(message[:from][:body]).to eq("Welcome #{players[x].full_name}! You have been added to the #{team.name}!")
     # end
     #
     # expect(current_path).to eq(roster_path(team_slug: 'whata-team'))

@@ -6,7 +6,7 @@ class PlayersController < ApplicationController
                           mobile_number: params[:mobile_number][x])
     end
     ts = TwilioService.new
-    ts.send_welcome_messages( current_user, team )
+    ts.send_welcome_messages(team)
     redirect_to roster_path(team_slug: team.slug)
   end
 
