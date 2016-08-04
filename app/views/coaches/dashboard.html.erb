@@ -6,7 +6,7 @@
     <% @teams.each_with_index do |team, x| %>
     <div class="team_list team-<%= x+1 %>">
       <% if team.slug && !team.slug.empty? %>
-        <h2><%= team.name %> <%= link_to "Edit", team_edit_path(team_slug: team.slug), class: "btn btn-primary" %></h2>
+        <h2><%= link_to "Edit", team_edit_path(team_slug: team.slug), class: "btn btn-primary" %> <%= team.name %> </h2>
         <h4><%= team.players.count %> Player(s)</h4>
         <% team.players.each do |player| %>
           <ul class="list-unstyled">
@@ -21,4 +21,5 @@
     <% end %>
   </div>
   <%= link_to "Create Team", team_new_path, class: "btn btn-primary" %>
+  <br /><br /><br /><br /><br />
 </div>
