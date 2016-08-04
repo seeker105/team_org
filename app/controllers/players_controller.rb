@@ -10,9 +10,6 @@ class PlayersController < ApplicationController
     redirect_to roster_path(team_slug: team.slug)
   end
 
-  def update
-  end
-
   def new
     @team = Team.find_by(slug: params[:team_slug])
   end

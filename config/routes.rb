@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  get 'players/update'
+  get 'teams/:team_slug/edit', to: 'teams#edit', as: :team_edit
+  post 'teams/:team_slug/update', to: 'teams#update', as: :team_update
+
 
   root 'pages#index'
 
@@ -15,6 +17,7 @@ Rails.application.routes.draw do
 
   post 'teams/create', to: 'teams#create', as: :team_create
   get 'teams/new', to: 'teams#new', as: :team_new
+
 
   get 'players/new/:team_slug', to: 'players#new', as: :players_new
   get 'players/create/:team_slug', to: 'players#create', as: :players_create

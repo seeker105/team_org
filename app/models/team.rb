@@ -9,6 +9,7 @@ class Team < ApplicationRecord
                      class_name: "User",
                      source: "user"
 
+
   def slugify_name
     self.slug = name.parameterize
   end
