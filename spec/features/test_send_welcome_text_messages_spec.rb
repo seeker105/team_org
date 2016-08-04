@@ -24,7 +24,7 @@ RSpec.feature "On the Create Players form", :js => true do
       fill_in "mobile_number[]", with: players[1].mobile_number
     end
     # click_button "Save Roster"
-    # # I expect a welcome text message to be sent to each player
+    #  # I expect a welcome text message to be sent to each player
     #
     # FakeSMS.contents.each_with_index do |message, x|
     #   expect(message[:from][:body]).to eq("Welcome #{players[x].full_name}! You have been added to the #{team.name} team!")
