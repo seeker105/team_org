@@ -9,19 +9,11 @@ $(document).ready(function() {
         $("#save_roster").removeClass('hidden');
         if(x < max_fields){ //max input box allowed
           $(wrapper).append('<div class="player-'+ x +'">\
-<%= label_tag "first_name" %> \
-<%= text_field_tag "first_name[]" %> \
-<%= label_tag "last_name" %> \
-<%= text_field_tag "last_name[]" %> \
-<%= label_tag "mobile_number" %> \
-<%= text_field_tag "mobile_number[]" %>\
-</div><br />');
+<label for="first_name">First name</label> <input type="text" name="first_name[]" id="first_name_"> \
+<label for="last_name">Last name</label> <input type="text" name="last_name[]" id="last_name_"> \
+<label for="mobile_number">Mobile number</label> <input type="text" name="mobile_number[]" id="mobile_number_">\
+</div>');
             x++; //text box increment
         }
     });
-
-    $(wrapper).on("click",".remove_field", function(e){ //user click on remove text
-        e.preventDefault();
-        $(this).parent('div').remove(); x--;
-    })
 });
