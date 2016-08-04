@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-RSpec.feature "Once a Roster is created click 'Finalize' and send a welcome text", :js => true do
+RSpec.feature "On the Create Players form", :js => true do
 
-  scenario 'click "Finalize" on the roster page' do
+  scenario 'click "Save Roster". Text messages are sent and the roster is displayed' do
     # team_name = "Whata Team"
     # coach = create(:user)
     # team = create(:team, coach_id: coach.id)
