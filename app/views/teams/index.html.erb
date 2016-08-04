@@ -1,3 +1,4 @@
+<%= render partial: "shared/navbar" %>
 <div class="container">
 
   <h1>Roster for <%= @team.name %></h1>
@@ -7,6 +8,6 @@
     <%= "#{x+1}: #{player.first_name} #{player.last_name} Mobile: #{player.mobile_number}" %>
     <br />
   <% end %>
-
-  <%= link_to "Finalize", welcome_messages_path(team: @team) %>
+  <br /><br />
+  <%= link_to "Return to Dashboard", coach_dashboard_path, class: "btn btn-primary" %>
 </div>

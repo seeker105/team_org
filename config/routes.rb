@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-
-  get 'players/create'
-
   get 'players/update'
 
   root 'pages#index'
@@ -13,9 +10,14 @@ Rails.application.routes.draw do
   get 'coach/dashboard', to: 'coaches#dashboard', as: :coach_dashboard
   get 'create_account', to: 'accounts#create', as: :create_account
   get 'landing', to: 'pages#landing', as: :landing_page
-  get 'roster/:id', to: 'teams#index', as: :roster
+
+  get 'roster/:team_slug', to: 'teams#index', as: :roster
+
   post 'teams/create', to: 'teams#create', as: :team_create
   get 'teams/new', to: 'teams#new', as: :team_new
-  get 'players/new', to: 'players#new', as: :players_new
+
+  get 'players/new/:team_slug', to: 'players#new', as: :players_new
+  get 'players/create/:team_slug', to: 'players#create', as: :players_create
+
   get 'twilio/welcome_messages', to: 'twilio#create', as: :welcome_messages
 end

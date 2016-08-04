@@ -24,7 +24,7 @@ RSpec.feature "Coach with no teams" do
     expect(page).to have_button("Create")
   end
 
-  scenario 'coach creates a team' do
+  scenario 'coach visits the Create Players form' do
     coach = create(:coach)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(coach)
     team_name = "Whata team"
@@ -35,20 +35,11 @@ RSpec.feature "Coach with no teams" do
     fill_in "team_name", with: team_name
     click_button "Create"
 
-    expect(current_path).to eq(player_new_path)
     expect(page).to have_content("Create Players")
     expect(page).to have_button("Add player")
     expect(page).to have_field("first_name[]")
     expect(page).to have_field("last_name[]")
     expect(page).to have_field("mobile_number[]")
     expect(page).to have_button("Save Roster")
-
-    # As a coach with no teams
-    #
-    # When i visit the team creation form
-    # and I enter a team name
-    # And I click create
-    #
-    # I expect to be taken to the player creation form
   end
 end

@@ -1,5 +1,5 @@
 class Team < ApplicationRecord
-  before_save :slugify_name
+  before_create :slugify_name
 
   belongs_to :coach, class_name: "User",
                      foreign_key: "coach_id",

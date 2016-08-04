@@ -1,14 +1,55 @@
 <%= render partial: "shared/navbar" %>
 <div class="container">
 
-<h1>Create Players</h1>
-<br /><br />
-  <div class="input_fields_wrap">
-    '<div class="player-1">
-    First Name: <input type="text" name="first_name[]" />
-    Last Name: <input type="text" name="last_name[]" />
-    Mobile Number: <input type="text" name="mobile_number[]" />
-    <a href="#" class="remove_field">Remove</a></div>'
+  <h1>Create Players</h1>
+  <br /><br />
+  <button class="add_field_button">Add player</button><br /><br />
+  <%= form_tag players_create_path, method: :get, class: "navbar-form navbar-left search-form" do %>
+  <div class="input_fields_wrap container">
+
+
+
+      <%= label_tag "first_name" %>
+      <%= text_field_tag "first_name[]" %>
+      <%= label_tag "last_name" %>
+      <%= text_field_tag "last_name[]" %>
+      <%= label_tag "mobile_number" %>
+      <%= text_field_tag "mobile_number[]" %>
+      <br />
   </div>
+  <%= submit_tag "Save Roster" %>
+  <% end %>
+
+
 
 </div>
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+    var max_fields      = 25; //maximum input boxes allowed
+    var wrapper         = $(".input_fields_wrap"); //Fields wrapper
+    // var add_button      = $(".add_field_button"); //Add button ID
+
+    var x = 2; //initial text box count
+    $(".add_field_button").click(function(e){ //on add input button click
+        e.preventDefault();
+        if(x < max_fields){ //max input box allowed
+          $(wrapper).append('\
+<%= label_tag "first_name" %> \
+<%= text_field_tag "first_name[]" %> \
+<%= label_tag "last_name" %> \
+<%= text_field_tag "last_name[]" %> \
+<%= label_tag "mobile_number" %> \
+<%= text_field_tag "mobile_number[]" %>\
+<br />');
+            x++; //text box increment
+        }
+    });
+
+    $(wrapper).on("click",".remove_field", function(e){ //user click on remove text
+        e.preventDefault();
+        $(this).parent('div').remove(); x--;
+    })
+});
+</script>
