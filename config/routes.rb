@@ -20,4 +20,6 @@ Rails.application.routes.draw do
   get 'players/create/:team_slug', to: 'players#create', as: :players_create
 
   get 'twilio/welcome_messages', to: 'twilio#create', as: :welcome_messages
+
+  get 'mock_sign_in', to: 'mock_sign_in#create', as: :mock_sign_in
 end
