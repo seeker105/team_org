@@ -35,6 +35,9 @@ gem 'omniauth-facebook'
 gem 'rails_12factor'
 gem 'simplecov'
 gem 'twilio-ruby'
+gem 'autoprefixer-rails'
+gem 'bootstrap-sass'
+gem 'shoulda-matchers'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -46,7 +49,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'database_cleaner'
   gem 'capybara-webkit'
-  # gem 'selenium-webdriver'
+  gem 'pry', :require => 'pry'
 end
 
 group :development do

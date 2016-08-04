@@ -1,0 +1,13 @@
+<%= render partial: 'shared/navbar' %>
+
+<div class="container">
+  <h1>Create Team</h1>
+  <br /><br />
+
+  <%= form_for @team, url: team_create_path do |f| %>
+    <%= f.label :name, "Team Name" %>
+    <%= f.text_field :name, class: "form-control" %>
+    <br />
+    <%= f.submit "Create" %>
+  <% end %>
+</div>

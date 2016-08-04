@@ -1,8 +1,7 @@
 class User < ApplicationRecord
-  has_one :coaches_team, class_name: "Team",
-                         foreign_key: "user_id",
-                         required: false,
-                         inverse_of: "coach"
+  has_many :coaches_teams, class_name: "Team",
+                         foreign_key: "coach_id",
+                         inverse_of: :coach
   has_many :team_players
   has_many :teams, through: :team_players
 
@@ -12,5 +11,9 @@ class User < ApplicationRecord
       new_user.last_name = auth_info.last_name
       new_user.uid = auth_info.uid
     end
+  end
+
+  def full_name
+    "#{first_name} #{last_name}"
   end
 end
