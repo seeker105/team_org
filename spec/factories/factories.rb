@@ -29,7 +29,7 @@ FactoryGirl.define do
 
   factory :team do
     name { generate(:team_name) }
-    coach
+    coach_id nil
   end
 
   sequence :team_name do |var|

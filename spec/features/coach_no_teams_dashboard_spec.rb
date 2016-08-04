@@ -36,10 +36,5 @@ RSpec.feature "Coach with no teams" do
     click_button "Create"
 
     expect(page).to have_content("Create Players")
-    expect(page).to have_button("Add player")
-    expect(page).to have_field("first_name[]")
-    expect(page).to have_field("last_name[]")
-    expect(page).to have_field("mobile_number[]")
-    expect(page).to have_button("Save Roster")
   end
 end

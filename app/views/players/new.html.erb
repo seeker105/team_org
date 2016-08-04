@@ -7,21 +7,9 @@
   <%= form_tag players_create_path, method: :get, class: "navbar-form navbar-left search-form" do %>
   <div class="input_fields_wrap container">
 
-
-
-      <%= label_tag "first_name" %>
-      <%= text_field_tag "first_name[]" %>
-      <%= label_tag "last_name" %>
-      <%= text_field_tag "last_name[]" %>
-      <%= label_tag "mobile_number" %>
-      <%= text_field_tag "mobile_number[]" %>
-      <br />
   </div>
-  <%= submit_tag "Save Roster" %>
+  <%= submit_tag "Save Roster", class: "hidden", id: "save_roster"%>
   <% end %>
-
-
-
 </div>
 
 
@@ -31,18 +19,19 @@ $(document).ready(function() {
     var wrapper         = $(".input_fields_wrap"); //Fields wrapper
     // var add_button      = $(".add_field_button"); //Add button ID
 
-    var x = 2; //initial text box count
+    var x = 1; //initial text box count
     $(".add_field_button").click(function(e){ //on add input button click
         e.preventDefault();
+        $("#save_roster").removeClass('hidden');
         if(x < max_fields){ //max input box allowed
-          $(wrapper).append('\
+          $(wrapper).append('<div class="player-'+ x +'">\
 <%= label_tag "first_name" %> \
 <%= text_field_tag "first_name[]" %> \
 <%= label_tag "last_name" %> \
 <%= text_field_tag "last_name[]" %> \
 <%= label_tag "mobile_number" %> \
 <%= text_field_tag "mobile_number[]" %>\
-<br />');
+</div><br />');
             x++; //text box increment
         }
     });

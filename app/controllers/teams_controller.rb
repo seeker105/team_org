@@ -5,6 +5,7 @@ class TeamsController < ApplicationController
   end
 
   def index
+    byebug
     @team = Team.find_by(slug: params[:team_slug])
     @players = @team.players
   end
@@ -17,12 +18,4 @@ class TeamsController < ApplicationController
   def team_name
     params.require(:team).permit(:name)
   end
-
-  # def player_params
-  #   params.require(:team).require(:player).permit(:first_name, :last_name)
-  # end
-
-  # def player_params
-  #   params.require(:player).permit(:first_name, :last_name)
-  # end
 end
