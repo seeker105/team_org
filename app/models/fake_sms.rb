@@ -15,6 +15,10 @@ class FakeSMS
     self
   end
 
+  def self.reset
+    self.contents = []
+  end
+
   def create(from:, to:, body:)
     self.class.contents << Message.new(from: from, to: to, body: body)
   end

@@ -20,10 +20,29 @@ SimpleCov.start 'rails'
 # users commonly want.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
+
+def stub_omniauth
+  OmniAuth.config.test_mode = true
+  OmniAuth.config.mock_auth[:facebook] = OmniAuth::AuthHash.new({
+    provider: 'facebook',
+    uid: "1234567",
+    first_name: "John",
+    last_name: "Smith"
+    })
+end
+
 RSpec.configure do |config|
+
   config.before(:each) do
     stub_const("Twilio::REST::Client", FakeSMS)
+    FakeSMS.reset
   end
+
+  config.before(:example) do
+    Capybara.app = TeamOrg::Application
+    stub_omniauth
+  end
+
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.

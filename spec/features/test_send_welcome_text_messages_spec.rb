@@ -14,23 +14,22 @@ RSpec.feature "On the Create Players form", :js => true do
 
     2.times {click_button "Add player"}
     within(".player-1") do
-      fill_in "first_name[]", with: players[1].first_name
-      fill_in "last_name[]", with: players[1].last_name
-      fill_in "mobile_number[]", with: players[1].mobile_number
+      fill_in "first_name[]", with: players[0].first_name
+      fill_in "last_name[]", with: players[0].last_name
+      fill_in "mobile_number[]", with: players[0].mobile_number
     end
     within(".player-2") do
       fill_in "first_name[]", with: players[1].first_name
       fill_in "last_name[]", with: players[1].last_name
       fill_in "mobile_number[]", with: players[1].mobile_number
     end
-    # click_button "Save Roster"
-    #  # I expect a welcome text message to be sent to each player
-    #
-    # FakeSMS.contents.each_with_index do |message, x|
-    #   expect(message[:from][:body]).to eq("Welcome #{players[x].full_name}! You have been added to the #{team.name} team!")
-    # end
-    #
-    # expect(current_path).to eq(roster_path(team_slug: 'whata-team'))
-    # expect(page).to have_content("Welcome Text messages sent!")
+    click_button "Save Roster"
+    # I expect a welcome text message to be sent to each player
+    FakeSMS.contents.each_with_index do |message, x|
+      expect(message[:from][:body]).to eq("Welcome #{players[x].full_name}! You have been added to the #{team.name} team!")
+    end
+
+    expect(current_path).to eq(roster_path(team_slug: 'whata'))
+    expect(page).to have_content("Welcome Text messages sent!")
   end
 end
