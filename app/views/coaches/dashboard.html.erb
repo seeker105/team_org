@@ -6,7 +6,15 @@
     <% @teams.each_with_index do |team, x| %>
       <div class="team_list team-<%= x+1 %>">
         <h2><%= team.name %></h2>
-        <h3><%= team.players.count %> Player(s)</h3>
+        <h4><%= team.players.count %> Player(s)</h4>
+        <% team.players.each do |player| %>
+        <ul class="list-unstyled">
+          <li><%= "Name: #{player.full_name}" %></li>
+          <li><ul>
+            <li><%= "Mobile Number: #{player.mobile_number}" %></li>
+          </ul></li>
+        </ul>
+        <% end %>
       </div>
     <% end %>
   </div>
