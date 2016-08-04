@@ -8,8 +8,7 @@ RSpec.feature "On the Create Players form", :js => true do
     players = create_list(:user, 2)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(coach)
 
-    auth_hash = {first_name: coach.first_name, last_name: coach.last_name, uid: coach.uid}
-    visit mock_sign_in_path(auth_hash: auth_hash)
+    visit facebook_login_path
     visit "players/new/whata"
 
     2.times {click_button "Add player"}
