@@ -5,7 +5,6 @@ class TeamsController < ApplicationController
   end
 
   def index
-    byebug
     @team = Team.find_by(slug: params[:team_slug])
     @players = @team.players
   end
