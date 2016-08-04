@@ -3,8 +3,11 @@
 
   <h1>Coach's Dashboard</h1>
   <div class="container">
-    <% @teams.each do |team| %>
-      <h2 class="team_list"><%= team.name %></h2>
+    <% @teams.each_with_index do |team, x| %>
+      <div class="team_list team-<%= x+1 %>">
+        <h2><%= team.name %></h2>
+        <h3><%= team.players.count %> Player(s)</h3>
+      </div>
     <% end %>
   </div>
 
