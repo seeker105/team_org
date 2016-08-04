@@ -17,5 +17,4 @@ Rails.application.routes.draw do
 
   get 'twilio/welcome_messages', to: 'twilio#create', as: :welcome_messages
 
-  get 'mock_sign_in', to: 'mock_sign_in#create', as: :mock_sign_in
 end
